@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { EnglishTermsComponent } from './english-terms/english-terms.component';
+import { ViewEnglishTermsComponent } from './view-english-terms/view-english-terms.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { EnglishTermsComponent } from './english-terms/english-terms.component';
     FooterComponent,
     HomeComponent,
     SearchComponent,
-    EnglishTermsComponent
+    EnglishTermsComponent,
+    ViewEnglishTermsComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

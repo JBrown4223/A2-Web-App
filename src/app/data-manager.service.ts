@@ -27,13 +27,13 @@ export class DataManagerService {
         return this.http.get<EnglishTerms[]>(`${this.url}/api/terms/english`)
     }
     //Get One
-    getTermByIdEnglish(id: String): Observable<any>{
-        return this.http.get<any>(`${this.url}/api/terms/english/${id}`)
+    getTermByIdEnglish(id: String): Observable<EnglishTerms>{
+        return this.http.get<EnglishTerms>(`${this.url}/api/terms/english/${id}`)
     }
 
     //Get Some, All
-    getTermsFromText(text: String): Observable<any>{
-        return this.http.get<any>(`${this.url}/api/terms/english/:${text}`)
+    getTermsFromText(text: String): Observable<EnglishTerms[]>{
+        return this.http.get<EnglishTerms[]>(`${this.url}/api/terms/english/:${text}`)
     }
 
     //Add New
