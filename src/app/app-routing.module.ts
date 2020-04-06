@@ -11,15 +11,12 @@ import {AddTermComponent } from './add-term/add-term.component';
 
 
 const routes: Routes = [
-  { path:'/home', component: HomeComponent },
-  { path:'/about', component: AboutComponent },
-  { path:'/contact', component: ContactComponent},
-  { path:'/englishTerms', component: EnglishTermsComponent},
-  { path:'/viewEnglishTerm', component: ViewEnglishTermComponent},
-  { path: '/addTerm', component: AddTermComponent}
-  
-
-
+  { path:'home', component: HomeComponent },
+  { path:'about', component: AboutComponent },
+  { path:'contact', component: ContactComponent},
+  { path:'englishTerms', component: EnglishTermsComponent},
+  { path:'viewEnglishTerm', component: ViewEnglishTermComponent},
+  { path: 'addTerm', component: AddTermComponent}
 ];
 
 @NgModule({

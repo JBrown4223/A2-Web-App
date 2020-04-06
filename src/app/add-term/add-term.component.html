@@ -12,7 +12,7 @@
          </div>
          <div class="form-group form-inline text-center">
           <input class="form-control inputSize" id="authorName" name="authorName" placeholder="Bob Smith"
-            [(ngModel)]="newWord.authorName" #name="ngModel">
+            [(ngModel)]="newWord.authorName" #authorName="ngModel">
          </div>
         </div>
 
@@ -23,7 +23,7 @@
           </div>
           <div class="form-group form-inline text-center">
                 <input class="form-control inputSize" id="wordEnglish" name="wordEnglish" placeholder="Fetch API"
-                    [(ngModel)]="newWord.wordEnglish" #name="ngModel">
+                    [(ngModel)]="newWord.wordEnglish" #wordEnglish="ngModel">
           </div>
         </div>
         
@@ -32,7 +32,7 @@
           
           <div class="form-group form-inline text-center">
             <input class="form-control inputSize" id="wordExpanded" name="wordExpanded" 
-              [(ngModel)]="newWord.wordExpanded" #name="ngModel"></div>
+              [(ngModel)]="newWord.wordExpanded" #wordExpnaded="ngModel"></div>
         </div>
 
         <div class="text-center">
@@ -42,7 +42,7 @@
           </div>
           <div class="form-group form-inline text-center">
             <input class="form-control inputSize" id="fieldOfStudy" name="fieldOfStudy" placeholder="Computer Science"
-              [(ngModel)]="newWord.wordEnglish" #name="ngModel"></div>
+              [(ngModel)]="newWord.wordEnglish" #wordExpanded="ngModel"></div>
         </div>
         
         <div class="text-center">
@@ -51,7 +51,7 @@
             <div *ngIf='definition.errors?.required'>Definition Required</div>
             </div>
             <textarea class="form-control inputSize" id="definition" maxlength="5000" minlength="50" name="definition" required="" rows="5"
-            [(ngModel)]="newWord.definitions" #name="ngModel"></textarea>
+            [(ngModel)]="newWord.definitions" #definition="ngModel"></textarea>
         </div>
 
         
@@ -59,14 +59,14 @@
             <label for="linkWikipedia">Wikipedia Link:</label>
            <div class="form-group form-inline text-center">
              <input class="form-control inputSize" id="linkWikipedia" name="linkWikipedia" 
-              [(ngModel)]="newWord.linkWikipedia" #name="ngModel"></div>
+              [(ngModel)]="newWord.linkWikipedia" #linkWikipedia="ngModel"></div>
         </div>
 
         <div class="text-center">
             <label for="linkYoutube">Youtube Link:</label>
            <div class="form-group form-inline text-center">
              <input class="form-control inputSize" id="linkYoutube" name="linkYoutube" 
-              [(ngModel)]="newWord.linkYoutube" #name="ngModel"></div>
+              [(ngModel)]="newWord.linkYoutube" #linkYoutube="ngModel"></div>
         </div>
         
         <button class="btn btn-primary" type="submit" disabled="">Save</button>

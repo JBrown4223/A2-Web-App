@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { EnglishTerms } from '../englishTerms';
 import { DataManagerService } from '../data-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -52,7 +53,7 @@ export class AddTermComponent implements OnInit {
    
   }
 
-  onSubmit(){
+  onSubmit(){ 
     /*
       The function will do the folowing tasks
       1 - Check that all required fields are completed and not null
