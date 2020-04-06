@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { EnglishTermsComponent } from './english-terms/english-terms.component';
-import { ViewEnglishTermsComponent } from './view-english-terms/view-english-terms.component';
+import { ViewEnglishTermComponent } from './viewEnglishTermDetail/viewEnglishTerm.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddTermComponent } from './add-term/add-term.component';
@@ -21,7 +21,7 @@ import { AddTermComponent } from './add-term/add-term.component';
     HomeComponent,
     SearchComponent,
     EnglishTermsComponent,
-    ViewEnglishTermsComponent,
+    ViewEnglishTermComponent,
     AboutComponent,
     ContactComponent,
     AddTermComponent

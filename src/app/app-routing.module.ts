@@ -7,7 +7,7 @@ import{AboutComponent} from './about/about.component';
 import{ContactComponent} from './contact/contact.component';
 import{EnglishTermsComponent} from './english-terms/english-terms.component';
 import{ViewEnglishTermComponent} from './viewEnglishTermDetail/viewEnglishTerm.component';
-import { AddTermComponent } from './add-term/add-term.component';
+import {AddTermComponent } from './add-term/add-term.component';
 
 
 const routes: Routes = [

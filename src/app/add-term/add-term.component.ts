@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EnglishTerms } from '../englishTerms';
-import { NonEnglishTerms } from '../nonEnglishTerms';
 import { DataManagerService } from '../data-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Languages } from '../languages';
@@ -28,7 +27,7 @@ export class AddTermComponent implements OnInit {
     this.newWord.wordEnglish = '';
     this.newWord.wordNonEnglish = '';
     this.newWord.wordExpanded ='';
-    this.newWord.languageCode='';
+    this.newWord.languageCode="en-ca";
     this.newWord.image='';
     this.newWord.imageType='';  
     this.newWord.audio ='';
@@ -61,7 +60,7 @@ export class AddTermComponent implements OnInit {
      
     */
 
-    if(this.newWord.wordEnglish && this.newWord.authorName && this.newWord.languageCode && this.newWord.dateCreated && this.newWord.dateRevised && this.newWord.definitions){
+    if(this.newWord.wordEnglish && this.newWord.authorName && this.newWord.languageCode && this.newWord.dateCreated && this.newWord.dateRevised){
        
       
         this.d.addNewTermEnglish(this.newWord).subscribe(u => {
