@@ -11,6 +11,7 @@ import { EnglishTermsComponent } from './english-terms/english-terms.component';
 import { ViewEnglishTermsComponent } from './view-english-terms/view-english-terms.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { AddTermComponent } from './add-term/add-term.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ContactComponent } from './contact/contact.component';
     EnglishTermsComponent,
     ViewEnglishTermsComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    AddTermComponent
   ],
   imports: [
     BrowserModule,

@@ -1,26 +1,33 @@
-<table style="width: 100%;">
-    <tr>
-        <th>English Word</th>
-        <th>Expanded</th>
-        <th>Info</th>
-        <th>Links</th>
-        <th>Actions</th>
-    </tr>
-    <tr *ngFor="let term of terms">
-        <td>{{term.wordEnglish}}</td>
-        <td>{{term.wordExpanded}}</td>
-        <td>
-            <li *ngIf="term.authorName">Author: {{term.authorName}}</li>
-            <li *ngIf="term.dateCreated">Created: {{term.dateCreated}}</li>
-            <li *ngIf="term.dateRevised">Revised: {{term.dateRevised}}</li>
-        </td>
-        <td>
-            <li *ngIf="term.linkAuthoritative"><a [href]="term.linkAuthoritative" target="parent">Trusted Documentation</a></li>
-            <li *ngIf="term.linkWikipedia"><a [href]="term.linkWikipedia" target="parent">Wikipedia Documentation</a></li>
-            <li *ngIf="term.linkYouTube"><a [href]="term.linkYouTube" target="parent">YouTube Documentation</a></li>
-        </td>
-        <td>
-            <button class="btn" type="submit" (click)="onclick(term._id)">View</button>
-        </td>
-    </tr>
-</table>
+<div>
+  <Search></Search>
+    <div>
+    <table style="width: 100%;">
+        <tr>
+            <th>English Word</th>
+            <th>Expanded</th>
+            <th>Info</th>
+            <th>Links</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let term of terms">
+            <td>{{term.wordEnglish}}</td>
+            <td>{{term.wordExpanded}}</td>
+            <td>
+                <li *ngIf="term.authorName">Author: {{term.authorName}}</li>
+                <li *ngIf="term.dateCreated">Created: {{term.dateCreated}}</li>
+                <li *ngIf="term.dateRevised">Revised: {{term.dateRevised}}</li>
+            </td>
+            <td>
+                <li *ngIf="term.linkAuthoritative"><a [href]="term.linkAuthoritative" target="parent">Trusted Documentation</a></li>
+                <li *ngIf="term.linkWikipedia"><a [href]="term.linkWikipedia" target="parent">Wikipedia Documentation</a></li>
+                <li *ngIf="term.linkYouTube"><a [href]="term.linkYouTube" target="parent">YouTube Documentation</a></li>
+            </td>
+            <td>
+                <button class="btn" type="submit" (click)="onclick(term._id)">View</button>
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>
+
+

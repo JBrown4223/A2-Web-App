@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="card" style="width:750px;margin:0px auto">
+      <div class="card-header text-white bg-dark">Add New English Term</div>
+      <form class="form" (ngSubmit)='onSubmit()' #f="ngForm">
+        <br />
+  
+        <div class="text-center">
+          <label for="authorName">Author Name:</label>
+        
+         <div *ngIf='authorName.invalid && (authorName.dirty || authorName.touched)' class="inputSize alert alert-danger">
+            <div *ngIf='authorName.errors?.required'>Author Required</div>
+         </div>
+         <div class="form-group form-inline text-center">
+          <input class="form-control inputSize" id="authorName" name="authorName" placeholder="Bob Smith"
+            [(ngModel)]="newWord.authorName" #name="ngModel">
+         </div>
+        </div>
+
+        <div class="text-center">
+            <label for="wordEnglish">New Term In English:</label>
+          <div *ngIf='wordEnglish.invalid && (wordEnglish.dirty || wordEnglish.touched)' class="inputSize alert alert-danger">
+          <div *ngIf='wordEnglish.errors?.required'>New Word Required</div>
+          </div>
+          <div class="form-group form-inline text-center">
+                <input class="form-control inputSize" id="wordEnglish" name="wordEnglish" placeholder="Fetch API"
+                    [(ngModel)]="newWord.wordEnglish" #name="ngModel">
+          </div>
+        </div>
+        
+        <div class="text-center">
+            <label for="wordExpanded">Expansion, if term or word (above) is an acronym or initialism:</label>
+          
+          <div class="form-group form-inline text-center">
+            <input class="form-control inputSize" id="wordExpanded" name="wordExpanded" 
+              [(ngModel)]="newWord.wordExpanded" #name="ngModel"></div>
+        </div>
+
+        <div class="text-center">
+          <label for="fieldOfStudy">Field of Study:</label>
+          <div *ngIf='fieldOfStudy.invalid && (fieldOfStudy.dirty || fieldOfStudy.touched)' class="inputSize alert alert-danger">
+            <div *ngIf='fieldOfStudy.errors?.required'>Field of Study Category Required</div>
+          </div>
+          <div class="form-group form-inline text-center">
+            <input class="form-control inputSize" id="fieldOfStudy" name="fieldOfStudy" placeholder="Computer Science"
+              [(ngModel)]="newWord.wordEnglish" #name="ngModel"></div>
+        </div>
+        
+        <div class="text-center">
+            <label for="definition">Definition:</label>
+            <div *ngIf='definition.invalid && (definition.dirty || definition.touched)' class="inputSize alert alert-danger">
+            <div *ngIf='definition.errors?.required'>Definition Required</div>
+            </div>
+            <textarea class="form-control inputSize" id="definition" maxlength="5000" minlength="50" name="definition" required="" rows="5"
+            [(ngModel)]="newWord.definitions" #name="ngModel"></textarea>
+        </div>
+
+        
+        <div class="text-center">
+            <label for="linkWikipedia">Wikipedia Link:</label>
+           <div class="form-group form-inline text-center">
+             <input class="form-control inputSize" id="linkWikipedia" name="linkWikipedia" 
+              [(ngModel)]="newWord.linkWikipedia" #name="ngModel"></div>
+        </div>
+
+        <div class="text-center">
+            <label for="linkYoutube">Youtube Link:</label>
+           <div class="form-group form-inline text-center">
+             <input class="form-control inputSize" id="linkYoutube" name="linkYoutube" 
+              [(ngModel)]="newWord.linkYoutube" #name="ngModel"></div>
+        </div>
+        
+        <button class="btn btn-primary" type="submit" disabled="">Save</button>
+        <button><a class="btn btn-default" routerlink="/englishTerms" href="/englishTerms">Back to list</a></button>
+      </form>
+    </div>
+  </div>
+
+  

@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable, of} from "rxjs";
+import { catchError, tap } from "rxjs/operators";
+
 // Import data model classes, for example...
 import {Definitions} from './definitions';
 import {EnglishTerms} from './englishTerms';
 import {NonEnglishTerms} from './nonEnglishTerms';
+import { Languages } from './languages';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +22,12 @@ export class DataManagerService {
 
   // Callable methods...
   // For each entity, as appropriate, get, add, edit, delete
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+
   
  //============== English Terms ===== //
   
@@ -104,6 +113,10 @@ export class DataManagerService {
         return this.http.put<any>(`${this.url}/api/terms/other/addLikes/:id:${id}`, credentials)
     }
 
+    /*========= Language Code Method ======== */
+    getLanguages(): Observable<Languages[]>{
+        return this.http.get<Languages[]>(`http://pam-2020-a2and3webapi.herokuapp.com/api/languages`)
+    }
 
 }
 
