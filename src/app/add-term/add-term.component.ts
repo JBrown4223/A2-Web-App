@@ -42,7 +42,6 @@ export class AddTermComponent implements OnInit {
     this.newWord.fieldOfStudy='';   
     this.newWord.helpYes=0;
     this.newWord.helpNo =0;
-    this.newWord._v=0;
     this.newWord.defString='';
 
        //Definiton Initialization

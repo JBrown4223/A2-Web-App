@@ -52,8 +52,8 @@ export class DataManagerService {
     }
 
     //Add New Definition
-    addEnglishDefinition(credentials: Definitions, id: String) : Observable<any> {
-       return this.http.put<any>(`${this.url}api/terms/english/addDefinition/:${id}`,credentials)
+    addEnglishDefinition(credentials: Definitions, id: String) : Observable<Definitions> {
+       return this.http.put<Definitions>(`${this.url}api/terms/english/${id}/addDefinition`,credentials)
     }
 
    //Increase the Is Helpful of a term
