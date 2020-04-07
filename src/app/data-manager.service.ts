@@ -37,7 +37,7 @@ export class DataManagerService {
     }
     //Get One
     getTermByIdEnglish(id: String): Observable<EnglishTerms>{
-        return this.http.get<EnglishTerms>(`${this.url}api/terms/english/${id}`)
+        return this.http.get<EnglishTerms>(`${this.url}api/terms/english/:${id}`)
     }
 
     //Get Some, All

@@ -28,7 +28,7 @@
               </span>
             </td>
             <td *ngIf="term.definitions">{{ term.fieldOfStudy }}</td>
-            <td *ngIf="term.definitions"><button class="btn btn-default" routerLink="/viewEnglishTerm/{{ term._id }}">Detail</button></td>
+            <td *ngIf="term.definitions"><button class="btn btn-default" routerLink="englishTerms/view/{{ term._id }}">Detail</button></td>
           </tr>
         </tbody>
       </table>

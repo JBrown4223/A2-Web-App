@@ -1,1 +1,54 @@
-<p>view-english-terms works!</p>
+<div *ngIf="term">
+  <h3>Details for {{terms.wordEnglish}}</h3>
+  <p>&nbsp;</p>
+</div>
+
+<div class="row">
+   <div class="col-auto">
+      <p>Definitions: ({{terms._v}})</p>
+      <button>Add New Definition</button><p>&nbsp;</p>
+      <div *ngFor="let def of term.definitions">
+        <div _ngcontent-xbj-c3="" class="panel-heading">
+            <button _ngcontent-xbj-c3="" class="btn btn-default btn-sm">Like&nbsp;&nbsp;<span _ngcontent-xbj-c3="" class="badge">{{terms.definitions.likes}}</span></button>&nbsp;&nbsp;
+            <p><span>Author: {{def.authorName}} on {{def.dateCreated}}</span></p>
+        </div>
+
+        <div _ngcontent-xbj-c3="" class="panel-body"> 
+            {{def.definition}}
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-auto" *ngIf="term">
+        <div>Field of Study - {{term.fieldOfStudy}}</div>
+        <div>Author - {{term.authorName}}</div>
+        <div>Dates</div>
+        <div>{{term.dateCreated}}</div>
+        <div>{{term.dateModified}}</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-auto">
+        <div>Translations
+          <div><button>Add Translation</button></div>
+          <div><a href="">Translations will go here</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-auto"><span>Links</span>
+        <div *ngIf="term.linkWikipedia">{{term.linkWikipedia}}</div>
+        <div *ngIf="term.linkAthoratative">{{term.linkAuthoratative}}</div>
+        <div *ngIf="term.linkYouTube">{{term.linkYoutube}}</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-auto"><span>Was this Helpful</span>
+        <button>Yes {{term.helpYes}}</button>
+        <button>No {{term.helpNo}}</button>
+    </div>
+</div>

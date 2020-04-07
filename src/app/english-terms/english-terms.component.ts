@@ -20,7 +20,6 @@ export class EnglishTermsComponent implements OnInit {
 
   onclick(event) {
     console.log(event)
-    this.router.navigate([`/viewTermsEnglish/:id`]);
 
   }
 
