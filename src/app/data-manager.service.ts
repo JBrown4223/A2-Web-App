@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, of} from "rxjs";
+import { Observable} from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 
 // Import data model classes, for example...
@@ -12,6 +12,7 @@ import { Languages } from './languages';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataManagerService {
 
   // Inject the HttpClient
@@ -37,12 +38,12 @@ export class DataManagerService {
     }
     //Get One
     getTermByIdEnglish(id: String): Observable<EnglishTerms>{
-        return this.http.get<EnglishTerms>(`${this.url}api/terms/english/:${id}`)
+        return this.http.get<EnglishTerms>(`${this.url}api/terms/english/${id}`)
     }
 
     //Get Some, All
     getTermsFromText(text: String): Observable<EnglishTerms[]>{
-        return this.http.get<EnglishTerms[]>(`${this.url}api/terms/english/:${text}`)
+        return this.http.get<EnglishTerms[]>(`${this.url}api/terms/english/${text}`)
     }
 
     //Add New

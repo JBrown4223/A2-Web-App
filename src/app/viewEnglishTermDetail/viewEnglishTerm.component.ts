@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EnglishTerms} from '../englishTerms';
 import { DataManagerService } from '../data-manager.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Definitions } from '../definitions';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-viewEnglishTerm',
@@ -10,15 +9,17 @@ import { Definitions } from '../definitions';
   styleUrls: ['./viewEnglishTerm.component.css']
 })
 export class ViewEnglishTermComponent implements OnInit {
+  
+
+  constructor(private d: DataManagerService, private route: ActivatedRoute) {
+  }
   term: EnglishTerms;
   
 
-  constructor(private d: DataManagerService, private router: Router, private route: ActivatedRoute) {
-  }
-
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
-    this.d.getTermByIdNonEnglish(id).subscribe(u => this.term = u.data)
+    this.d.getTermByIdEnglish(id).subscribe(u =>{ 
+      this.term = u; })
   }
   
 
