@@ -9,7 +9,7 @@
             <dt>Definitions
                 <br *ngIf="term.definitions">({{ term.definitions.length }})<br>
                 <br>
-                <button class="btn btn-primary btn-sm" routerLink="/terms/english/new/definition/{{term._id}}">Add another</button>
+                <button class="btn btn-primary btn-sm" routerLink="/addDefinition/{{term._id}}">Add another</button>
             </dt>
             <dd *ngFor="let definition of term.definitions">
                 <div class="panel panel-default">

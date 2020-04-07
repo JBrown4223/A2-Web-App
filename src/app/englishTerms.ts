@@ -19,7 +19,6 @@ export class EnglishTerms {
     fieldOfStudy: String;   
     helpYes: Number;
     helpNo: Number;
-    _v: Number;
     defString: String; //String that stores entered definition
     definitions: Array<Definitions>;
 }

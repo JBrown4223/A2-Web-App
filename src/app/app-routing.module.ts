@@ -8,6 +8,7 @@ import{ContactComponent} from './contact/contact.component';
 import{EnglishTermsComponent} from './english-terms/english-terms.component';
 import{ViewEnglishTermComponent} from './viewEnglishTermDetail/viewEnglishTerm.component';
 import {AddTermComponent } from './add-term/add-term.component';
+import { AddDefinitionComponent} from './add-definition/add-definition.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path:'englishTerms', component: EnglishTermsComponent},
   { path:'view/:id', component: ViewEnglishTermComponent},
   { path:'addTerm', component: AddTermComponent},
+  { path:'addDefinition/:id', component: AddDefinitionComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
  
 ];
