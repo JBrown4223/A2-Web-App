@@ -4,54 +4,83 @@
   <h3>Details for {{term.wordEnglish}}</h3>
   <p>&nbsp;</p>
     </div>
-
-    <div class="row">
-        <div class="col-auto">
-            <p>Definitions: <span>{{term._v}}</span></p>
-            <button>Add New Definition</button><p>&nbsp;</p>
-            <div *ngFor="let def of term.definitions">
-        <div _ngcontent-xbj-c3="" class="panel-heading">
-            <button _ngcontent-xbj-c3="" class="btn btn-default btn-sm">Like&nbsp;&nbsp;<span _ngcontent-xbj-c3="" class="badge">{{def.likes}}</span></button>&nbsp;&nbsp;
-            <p><span>Author: {{def.authorName}} on {{def.dateCreated}}</span></p>
-        </div>
-
-        <div _ngcontent-xbj-c3="" class="panel-body"> 
-            {{def.definition}}
-        </div>
+    <div class="col-md-10">
+        <dl class="dl-horizontal" *ngIf="term">
+            <dt>Definitions
+                <br *ngIf="term.definitions">({{ term.definitions.length }})<br>
+                <br>
+                <button class="btn btn-primary btn-sm" routerLink="/terms/english/new/definition/{{term._id}}">Add another</button>
+            </dt>
+            <dd *ngFor="let definition of term.definitions">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <button class="btn btn-default btn-sm" (click)="like(definition._id)">
+                            Like&nbsp;&nbsp;<span class="badge">{{ definition.likes }}</span>
+                        </button>
+                        &nbsp;&nbsp;Author: {{ definition.authorName|titlecase }} on {{ definition.dateCreated }}
+                    </div>
+                    <div class="panel-body">
+                        {{ definition.definition }}
+                    </div>
+                </div>
+            </dd>
+            <dt>Field of study</dt>
+            <dd><p>{{ term.fieldOfStudy|titlecase }}</p></dd>
+            <dt>Author name</dt>
+            <dd>
+                <p>{{ term.authorName|titlecase }}</p>
+            </dd>
+            <dt>Dates</dt>
+            <dd>
+                Created {{ term.dateCreated }}
+                <br>
+                Revised {{ term.dateRevised }}
+            </dd>
+            <br>
+            <dt>Translations</dt>
+            <dd>
+                <p>
+                    <span><a class="btn btn-primary btn-sm" routerLink="/terms/other/new/{{term._id}}">Add translation</a>&nbsp;&nbsp;</span>
+                    <span *ngFor><a class="btn btn-default btn-sm" href="/termsOther/detail/5e73d8a1eda5140017a45ce1">{{convert()}}</a>&nbsp;&nbsp;</span>
+                </p>
+            </dd>
+            <div>
+                <dt>Media</dt>
+                <dd *ngIf="term.image">
+                    <p><img [src]="term.image"></p>
+                </dd>
+                <dd *ngIf="term.linkWikipedia">
+                    <p>
+                        <audio controls>
+                            <source [src]="term.audio" [type]="term.audioType">
+                            <source [src]="term.audio" type="audio/mpeg">
+                            Your browser does not support this audio element, or it wasn't configured properly.
+                        </audio>
+                    </p>
+                </dd>
+                <dt>Links</dt>
+                <dd>
+                    <p>
+                        <span *ngIf="term.linkAuthoritative"><a class="btn btn-default btn-sm" target="_blank" href="{{term.linkAuthoritative}}">Reference</a>&nbsp;&nbsp;</span>
+                        <span *ngIf="term.linkWikipedia"><a class="btn btn-default btn-sm" target="_blank" href="{{term.linkWikipedia}}">Wikipedia</a>&nbsp;&nbsp;</span>
+                        <span *ngIf="term.linkYouTube"><a class="btn btn-default btn-sm" target="_blank" href="{{term.linkYouTube}}">YouTube</a>&nbsp;&nbsp;</span>
+                    </p>
+                </dd>
+                <dt>Was this helpful?</dt>
+                <dd>
+                    <p>
+                        <button class="btn btn-default btn-sm" (click)="helpYes(term._id)">
+                            Yes&nbsp;&nbsp;<span class="badge">{{ term.helpYes }}</span>
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-default btn-sm" (click)="helpNo(term._id)">
+                            No&nbsp;&nbsp;<span class="badge">{{ term.helpNo }}</span>
+                        </button>
+                        &nbsp;&nbsp;
+                    </p>
+                </dd>
             </div>
-        </div>
+        </dl>
     </div>
 
-    <div class="row">
-        <div class="col-auto">
-            <div>Field of Study - {{term.fieldOfStudy}}</div>
-            <div>Author - {{term.authorName}}</div>
-            <div>Dates</div>
-            <div>{{term.dateCreated}}</div>
-            <div>{{term.dateModified}}</div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-auto">
-            <div>Translations
-            <div><button>Add Translation</button></div>
-            <div><a href="">Translations will go here</a></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-auto"><span>Links</span>
-            <div *ngIf="term.linkWikipedia">{{term.linkWikipedia}}</div>
-            <div *ngIf="term.linkAthoratative">{{term.linkAuthoratative}}</div>
-            <div *ngIf="term.linkYouTube">{{term.linkYoutube}}</div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-auto"><span>Was this Helpful? </span>
-            <button>Yes <span>{{term.helpYes}}</span></button>
-            <button>No <span>{{term.helpNo}}</span></button>
-        </div>
-    </div>
 </div>
