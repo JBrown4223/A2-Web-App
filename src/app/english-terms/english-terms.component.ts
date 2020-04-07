@@ -12,19 +12,15 @@ import { EnglishTerms } from '../englishTerms';
 
 export class EnglishTermsComponent implements OnInit {
 
-  iModel: EnglishTerms[];
-
   constructor( private d: DataManagerService, private router: Router) { }
-
+  iModel: EnglishTerms[];
   ngOnInit() {
-    this.d.getTermsEnglish().subscribe( response =>{
-      this.iModel = response;
-    })
+    this.d.getTermsEnglish().subscribe( response => this.iModel = response)
   }
 
   onclick(event) {
     console.log(event)
-    this.router.navigate(['/viewTermsEnglish/:id']);
+    this.router.navigate([`/viewTermsEnglish/:id`]);
 
   }
 

@@ -1,14 +1,19 @@
 <div>
+    <br>
     <div>
-    <table style="width: 100%;">
-        <tr>
-            <th>English Word</th>
-            <th>Expanded</th>
-            <th>Info</th>
-            <th>Links</th>
-            <th>Actions</th>
-        </tr>
-        <tr *ngFor="let term of terms">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+             <th scope="col">English Word</th>
+             <th scope="col">Expanded</th>
+             <th scope="col">Info</th>
+             <th scope="col">Links</th>
+             <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+           <th scope="row"></th>
+           <tr *ngFor="let term of iModel">
             <td>{{term.wordEnglish}}</td>
             <td>{{term.wordExpanded}}</td>
             <td>
@@ -24,7 +29,8 @@
             <td>
                 <button class="btn" type="submit" (click)="onclick(term._id)">View</button>
             </td>
-        </tr>
+           </tr>
+        </tbody>
     </table>
     </div>
 </div>
