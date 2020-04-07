@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
+import { Location} from '@angular/common';
 import { EnglishTerms } from '../englishTerms';
 import { DataManagerService } from '../data-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,16 +16,15 @@ import { Definitions } from '../definitions';
 
 export class AddTermComponent implements OnInit {
  newWord: EnglishTerms;
- uid: String;
+ temp: Definitions;
  formError: String;
  defString: String
- 
+ location: Location;
 
   constructor(private d: DataManagerService, private router: Router, private route: ActivatedRoute) { 
     this.newWord = new EnglishTerms();
-    
+    this.temp = new Definitions();
     //Initialization of new Object to empty state
-    this.newWord._id='';
     this.newWord.wordEnglish = '';
     this.newWord.wordNonEnglish = '';
     this.newWord.wordExpanded ='';
@@ -43,14 +43,21 @@ export class AddTermComponent implements OnInit {
     this.newWord.helpYes=0;
     this.newWord.helpNo =0;
     this.newWord._v=0;
-    this.newWord.definitions= [new Definitions()];
+    this.newWord.defString='';
+
+       //Definiton Initialization
+       this.temp.authorName= '';
+       this.temp.dateCreated = this.newWord.dateCreated;
+       this.temp.definition = '';
+       this.temp.quality = 0; 
+       this.temp.likes = 0;
+    this.newWord.definitions =[this.temp];
+
    
   }
   
 
-  ngOnInit() {
-    this.uid= this.route.snapshot.params['id']
-   
+  ngOnInit() { 
   }
 
   onSubmit(){ 
@@ -58,14 +65,18 @@ export class AddTermComponent implements OnInit {
       The function will do the folowing tasks
       1 - Check that all required fields are completed and not null
       2 - Create new englishTerm
+      3 - Redirect to EnglishTerms List
      
     */
 
     if(this.newWord.wordEnglish && this.newWord.authorName && this.newWord.languageCode && this.newWord.dateCreated && this.newWord.dateRevised){
-       
+        
+ 
+     
       
-        this.d.addNewTermEnglish(this.newWord).subscribe(u => {
-          this.router.navigate(['/viewEnglishTerm/',this.uid]);
+      this.d.addNewTermEnglish(this.newWord).subscribe(u => {
+          this.newWord = u;
+          this.router.navigate(['/englishTerms']);
         });
 
     }
@@ -77,6 +88,10 @@ export class AddTermComponent implements OnInit {
 
 
 
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

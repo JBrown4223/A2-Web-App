@@ -33,7 +33,6 @@ import { AddTermComponent } from './add-term/add-term.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule
     
   ],

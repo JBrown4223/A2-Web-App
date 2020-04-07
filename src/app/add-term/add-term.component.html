@@ -1,78 +1,104 @@
-<div class="container">
-    <div class="card" style="width:750px;margin:0px auto">
-      <div class="card-header text-white bg-dark">Add New English Term</div>
-      <form class="form" (ngSubmit)='onSubmit()' #f="ngForm">
-        <br />
-  
-        <div class="text-center">
-          <label for="authorName">Author Name:</label>
-        
-         <div *ngIf='authorName.invalid && (authorName.dirty || authorName.touched)' class="inputSize alert alert-danger">
-            <div *ngIf='authorName.errors?.required'>Author Required</div>
-         </div>
-         <div class="form-group form-inline text-center">
-          <input class="form-control inputSize" id="authorName" name="authorName" placeholder="Bob Smith"
-            [(ngModel)]="newWord.authorName" #authorName="ngModel">
-         </div>
-        </div>
+<div class="row">
+  <div class="col-md-8">
+      <h3>Add New Term</h3>
 
-        <div class="text-center">
-            <label for="wordEnglish">New Term In English:</label>
-          <div *ngIf='wordEnglish.invalid && (wordEnglish.dirty || wordEnglish.touched)' class="inputSize alert alert-danger">
-          <div *ngIf='wordEnglish.errors?.required'>New Word Required</div>
+      <!-- Configure the submit button handler, and define the template reference variable -->
+      <form (ngSubmit)='onSubmit()' #f='ngForm'>
+
+          <!-- Input, text -->
+          <div class="form-group">
+              <label class="control-label" for="name">Author name:</label>
+              <input type="text" class="form-control" id="authorName" name="authorName"
+                  [(ngModel)]="newWord.authorName" [(ngModel)]="temp.authorName" #authorName="ngModel" minlength="5" maxlength="100" required
+                  autofocus>
+
+              <!-- Validation error area -->
+              <!-- Single condition... -->
+              <!-- <div [hidden]="name.valid || name.pristine" class='alert alert-danger'> -->
+              <!-- Multiple conditions... -->
+              <div *ngIf='authorName.invalid && (authorName.dirty || authorName.touched)' class='alert alert-danger'>
+                  <!-- The code below is situation-dependent - think before coding -->
+                  <div *ngIf='authorName.errors?.required'>Author is required! 5 - 100 characters</div>
+                  <div *ngIf='authorName.errors?.minlength'>Must be at least 5 characters</div>
+              </div>
           </div>
-          <div class="form-group form-inline text-center">
-                <input class="form-control inputSize" id="wordEnglish" name="wordEnglish" placeholder="Fetch API"
-                    [(ngModel)]="newWord.wordEnglish" #wordEnglish="ngModel">
+
+          <div class="form-group">
+              <label class="control-label" for="name">Term or word in English:</label>
+              <input type="text" class="form-control ng-pristine ng-invalid ng-touched" id="wordEnglish"
+                  name="wordEnglish" [(ngModel)]="newWord.wordEnglish" #wordEnglish="ngModel" minlength="5"
+                  maxlength="100" required autofocus>
+
+              <div *ngIf='wordEnglish.invalid && (wordEnglish.dirty || wordEnglish.touched)'
+                  class='alert alert-danger'>
+                  <!-- The code below is situation-dependent - think before coding -->
+                  <div *ngIf='wordEnglish.errors?.required'>English Word is required! 5 - 100 characters</div>
+                  <div *ngIf='wordEnglish.errors?.minlength'>Must be at least 5 characters</div>
+              </div>
           </div>
-        </div>
-        
-        <div class="text-center">
-            <label for="wordExpanded">Expansion, if term or word (above) is an acronym or initialism:</label>
-          
-          <div class="form-group form-inline text-center">
-            <input class="form-control inputSize" id="wordExpanded" name="wordExpanded" 
-              [(ngModel)]="newWord.wordExpanded" #wordExpnaded="ngModel"></div>
-        </div>
 
-        <div class="text-center">
-          <label for="fieldOfStudy">Field of Study:</label>
-          <div *ngIf='fieldOfStudy.invalid && (fieldOfStudy.dirty || fieldOfStudy.touched)' class="inputSize alert alert-danger">
-            <div *ngIf='fieldOfStudy.errors?.required'>Field of Study Category Required</div>
+          <div class="form-group"><label class="control-label" for="wordExpanded">Expansion, if term or word (above)
+                  is an acronym or initialism:</label>
+              <input class="form-control" id="wordExpanded" maxlength="100" minlength="3" name="wordExpanded"
+                  [(ngModel)]="newWord.wordExpanded" #wordExpanded="ngModel">
           </div>
-          <div class="form-group form-inline text-center">
-            <input class="form-control inputSize" id="fieldOfStudy" name="fieldOfStudy" placeholder="Computer Science"
-              [(ngModel)]="newWord.wordEnglish" #wordExpanded="ngModel"></div>
-        </div>
-        
-        <div class="text-center">
-            <label for="definition">Definition:</label>
-            <div *ngIf='definition.invalid && (definition.dirty || definition.touched)' class="inputSize alert alert-danger">
-            <div *ngIf='definition.errors?.required'>Definition Required</div>
-            </div>
-            <textarea class="form-control inputSize" id="definition" maxlength="5000" minlength="50" name="definition" required="" rows="5"
-            [(ngModel)]="newWord.definitions" #definition="ngModel"></textarea>
-        </div>
 
-        
-        <div class="text-center">
-            <label for="linkWikipedia">Wikipedia Link:</label>
-           <div class="form-group form-inline text-center">
-             <input class="form-control inputSize" id="linkWikipedia" name="linkWikipedia" 
-              [(ngModel)]="newWord.linkWikipedia" #linkWikipedia="ngModel"></div>
-        </div>
 
-        <div class="text-center">
-            <label for="linkYoutube">Youtube Link:</label>
-           <div class="form-group form-inline text-center">
-             <input class="form-control inputSize" id="linkYoutube" name="linkYoutube" 
-              [(ngModel)]="newWord.linkYoutube" #linkYoutube="ngModel"></div>
-        </div>
-        
-        <button class="btn btn-primary" type="submit" disabled="">Save</button>
-        <button><a class="btn btn-default" routerlink="/englishTerms" href="/englishTerms">Back to list</a></button>
+          <div class="form-group">
+              <label class="control-label" for="name">Field of study:</label>
+              <input type="text" class="form-control ng-pristine ng-invalid ng-touched" id="fieldOfStudy"
+                  name="fieldOfStudy" [(ngModel)]="newWord.fieldOfStudy" #fieldOfStudy="ngModel" minlength="5"
+                  maxlength="100" required autofocus>
+
+              <div *ngIf='fieldOfStudy.invalid && (fieldOfStudy.dirty || wordEnglish.touched)'
+                  class='alert alert-danger'>
+                  <!-- The code below is situation-dependent - think before coding -->
+                  <div *ngIf='fieldOfStudy.errors?.required'>Field of study is required! 5 - 100 characters</div>
+                  <div *ngIf='fieldOfStudy.errors?.minlength'>Must be at least 5 characters</div>
+              </div>
+          </div>
+
+          <div class="form-group"><label class="control-label" for="name">Definition:</label>
+              <textarea class="form-control" id="definition" maxlength="5000" [(ngModel)]="temp.definition"
+                  #definition="ngModel" minlength="50" name="defString" required="" rows="5"></textarea>
+
+              <div *ngIf='definition.invalid && (fieldOfStudy.dirty || wordEnglish.touched)'
+                  class='alert alert-danger'>
+                  <!-- The code below is situation-dependent - think before coding -->
+                  <div *ngIf='definition.errors?.required'>Definition is required! 50 - 5000 characters</div>
+                  <div *ngIf='definition.errors?.minlength'>Definition is required! 50 - 5000 characters</div>
+              </div>
+
+          </div>
+          <div class="form-group"><label class="control-label" for="linkAuthoritative">Link (URL),
+                  authoritative:</label>
+              <input class="form-control" id="linkAuthoritative" maxlength="100" minlength="3"
+                  name="linkAuthoritative" [(ngModel)]="newWord.linkAuthoritative" #linkAuthoritative="ngModel"
+                  pattern="(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#()_-]*[\w@?^=%&amp;/~+#()_-])?">
+          </div>
+          <div class="form-group"><label class="control-label" for="linkWikipedia">Link (URL) on Wikipedia:</label>
+              <input class="form-control" id="linkWikipedia" maxlength="100" minlength="3" name="linkWikipedia"
+                  [(ngModel)]="newWord.linkWikipedia" #linkWikipedia="ngModel"
+                  pattern="(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#()_-]*[\w@?^=%&amp;/~+#()_-])?">
+          </div>
+          <div class="form-group"><label class="control-label" for="linkYouTube">Link (URL) on YouTube:</label>
+              <input class="form-control" id="linkYouTube" maxlength="100" minlength="3" name="linkYouTube"
+                  [(ngModel)]="newWord.linkYouTube" #linkYouTube="ngModel"
+                  pattern="(http|https)://[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:/~+#()_-]*[\w@?^=%&amp;/~+#()_-])?">
+          </div>
+
+          <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Add New Term</button>
+          &nbsp;&nbsp;
+          <button (click)="goBack()" type="button" class="btn btn-default">Back to English Terms</button>
+
       </form>
-    </div>
   </div>
+  <div class="col-md-4">
+      <h4>Data from the form:</h4>
+      <p class="lead"><code>{{ newWord | json }}</code></p>
+  </div>
+</div>
+
+
 
   

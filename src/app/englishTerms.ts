@@ -20,5 +20,6 @@ export class EnglishTerms {
     helpYes: Number;
     helpNo: Number;
     _v: Number;
-    definitions: [Definitions];
+    defString: String; //String that stores entered definition
+    definitions: Array<Definitions>;
 }
