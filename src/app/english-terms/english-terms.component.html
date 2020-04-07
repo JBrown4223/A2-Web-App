@@ -1,38 +1,37 @@
 <div>
-    <br>
-    <div>
-    <table class="table table-striped">
+    <h3 class="form-inline">
+        List of English terms - search for... 
+        <input autofocus="" class="form-control ng-untouched ng-pristine ng-valid"
+          name="searchText" placeholder="(3 or more characters)" type="search">
+        &nbsp;&nbsp;
+       <button><a _ngcontent-qsa-c4="" class="btn btn-primary" routerlink="/termsEnglish/create" href="/terms/english/create">Add new</a></button>
+      </h3>
+      <table class="table table-striped">
         <thead>
           <tr>
-             <th scope="col">English Word</th>
-             <th scope="col">Expanded</th>
-             <th scope="col">Info</th>
-             <th scope="col">Links</th>
-             <th scope="col">Actions</th>
+            <th>Word</th>
+            <th>Author</th>
+            <th>Definition</th>
+            <th class="col-md-2">Field of study</th>
+            <th class="col-md-1"></th>
           </tr>
         </thead>
         <tbody>
-           <th scope="row"></th>
-           <tr *ngFor="let term of iModel">
-            <td>{{term.wordEnglish}}</td>
-            <td>{{term.wordExpanded}}</td>
-            <td>
-                <li *ngIf="term.authorName">Author: {{term.authorName}}</li>
-                <li *ngIf="term.dateCreated">Created: {{term.dateCreated}}</li>
-                <li *ngIf="term.dateRevised">Revised: {{term.dateRevised}}</li>
+          <tr *ngFor="let term of iModel">
+            <td *ngIf="term.definitions" class="col-md-2">{{ term.wordEnglish }}</td>
+            <td *ngIf="term.definitions" class="col-md-1">{{ term.authorName }}</td>
+            <td *ngIf="term.definitions" class="col-md-5">
+              {{ term.definitions[0].definition }}
+              <span *ngIf="term.definitions.length - 1 > 0">
+                <br>
+                <i>• {{ term.definitions.length - 1 }} other definition(s)</i>
+              </span>
             </td>
-            <td>
-                <li *ngIf="term.linkAuthoritative"><a [href]="term.linkAuthoritative" target="parent">Trusted Documentation</a></li>
-                <li *ngIf="term.linkWikipedia"><a [href]="term.linkWikipedia" target="parent">Wikipedia Documentation</a></li>
-                <li *ngIf="term.linkYouTube"><a [href]="term.linkYouTube" target="parent">YouTube Documentation</a></li>
-            </td>
-            <td>
-                <button class="btn" type="submit" (click)="onclick(term._id)">View</button>
-            </td>
-           </tr>
+            <td *ngIf="term.definitions">{{ term.fieldOfStudy }}</td>
+            <td *ngIf="term.definitions"><button class="btn btn-default" routerLink="/viewEnglishTerm/{{ term._id }}">Detail</button></td>
+          </tr>
         </tbody>
-    </table>
-    </div>
+      </table>
 </div>
 
 
