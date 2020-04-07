@@ -10,6 +10,7 @@ import{ViewEnglishTermComponent} from './viewEnglishTermDetail/viewEnglishTerm.c
 import {AddTermComponent } from './add-term/add-term.component';
 
 
+
 const routes: Routes = [
   { path:'home', component: HomeComponent },
   { path:'about', component: AboutComponent },
@@ -23,4 +24,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
