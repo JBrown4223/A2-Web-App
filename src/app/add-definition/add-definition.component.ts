@@ -50,7 +50,7 @@ export class AddDefinitionComponent implements OnInit {
     console.log(event);
     this.d.addEnglishDefinition(this.newDefinition,this.termID).subscribe(u => {
       this.newDefinition = u;
-      this.router.navigate([`/viem/${this.termID}`]);
+      this.router.navigate([`/view/${this.termID}`]);
     });
   }
 
