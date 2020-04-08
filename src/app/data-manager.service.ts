@@ -101,12 +101,12 @@ export class DataManagerService {
 
     //Increase the Is Helpful of a term
     isHelpfulNonEng(creditials: NonEnglishTerms, id: String): Observable<any>{
-     return this.http.put<any>(`${this.url}api/terms/other/addYes/:${id}`, creditials)
+     return this.http.put<any>(`${this.url}api/terms/other/addYes/${id}`, creditials)
     }
     
     //Increase the not Helpful of a term
     isNotHelpfulNonEng(creditials: NonEnglishTerms, id: String): Observable<any>{
-        return this.http.put<any>(`${this.url}api/terms/other/addNo/:${id}`, creditials)
+        return this.http.put<any>(`${this.url}api/terms/other/addNo/${id}`, creditials)
     }
 
     //Increase Definition Likes

@@ -5,7 +5,7 @@
             <input class="form-control"
                 name="searchText" placeholder="(3 or more characters)" type="search">
             &nbsp;&nbsp;
-            <button class="btn btn-primary" routerlink='/addTerm'>Add new</button>
+            <button class="btn btn-primary" routerlink='/addNonEngTerm'>Add new</button>
         </h3>
     </div>
         <table class="table table-striped">
@@ -32,7 +32,7 @@
                 </span>
               </td>
               <td *ngIf="term.definitions">{{ term.fieldOfStudy }}</td>
-              <button class="btn btn-default" routerLink="/view/{{ term._id }}">Detail</button>
+              <button class="btn btn-default" routerLink="/viewNonEnglish/{{ term._id }}">Detail</button>
             </tr>
           </tbody>
         </table>
