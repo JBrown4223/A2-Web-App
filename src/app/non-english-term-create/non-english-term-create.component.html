@@ -5,6 +5,11 @@
       
             <!-- Configure the submit button handler, and define the template reference variable -->
             <form (ngSubmit)='onSubmit()' #f='ngForm'>
+                <label _ngcontent-xbj-c4="" class="control-label" for="selectedLanguage">Language:</label>
+                        <select _ngcontent-xbj-c4="" class="form-control ng-valid ng-touched ng-dirty" id="selectedLanguage" name="selectedLanguage"><!---->
+                            <option *ngFor="let langs of LangArray" [value]="Langs.code" >
+                                 {{Langs.name}}</option>
+                        </select>
       
                 <!-- Input, text -->
                 <div class="form-group">
@@ -97,9 +102,3 @@
       </div>
 </div>
 
-<label _ngcontent-xbj-c4="" class="control-label" for="selectedLanguage">Language:</label>
-<select _ngcontent-xbj-c4="" class="form-control ng-valid ng-touched ng-dirty" id="selectedLanguage" name="selectedLanguage"><!---->
- <option *ngFor="let langs in LangArray; let i = index" value="{{Langs[i].code}}" >
-     {{Langs[i].name}}
- </option>
-</select>

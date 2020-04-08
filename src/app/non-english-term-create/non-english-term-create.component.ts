@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { Location} from '@angular/common';
-import { NonEnglishTerms } from '../NonEnglishTerms';
+import { NonEnglishTerms } from '../nonEnglishTerms';
 import { DataManagerService } from '../data-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Languages } from '../languages';
