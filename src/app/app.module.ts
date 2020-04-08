@@ -16,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddTermComponent } from './add-term/add-term.component';
 import { AddDefinitionComponent } from './add-definition/add-definition.component';
+import { NonEnglishTermsComponent } from './non-english-terms/non-english-terms.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddDefinitionComponent } from './add-definition/add-definition.componen
     AboutComponent,
     ContactComponent,
     AddTermComponent,
-    AddDefinitionComponent
+    AddDefinitionComponent,
+    NonEnglishTermsComponent
   ],
   imports: [
     BrowserModule,
