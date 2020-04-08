@@ -11,7 +11,7 @@ import {AddTermComponent } from './add-term/add-term.component';
 import {AddDefinitionComponent} from './add-definition/add-definition.component';
 import {NonEnglishTermsComponent} from './non-english-terms/non-english-terms.component';
 import {NonEnglishTermDetailsComponent} from './non-english-term-details/non-english-term-details.component';
-
+import {NonEnglishTermCreateComponent} from './non-english-term-create/non-english-term-create.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent },
@@ -24,6 +24,7 @@ const routes: Routes = [
   //Non-English Routes
   { path:'nonEnglishTerms', component: NonEnglishTermsComponent},
   { path:'viewNonEnglish/:id', component: NonEnglishTermDetailsComponent},
+  { path:'addNonEngTerm/:id', component: NonEnglishTermCreateComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
  
 ];

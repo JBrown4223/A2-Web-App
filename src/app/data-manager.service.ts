@@ -111,7 +111,7 @@ export class DataManagerService {
 
     //Increase Definition Likes
     nonEngDefLikes(credentials: Definitions, id: String): Observable<any>{
-        return this.http.put<any>(`${this.url}api/terms/other/addLikes/:id:${id}`, credentials)
+        return this.http.put<any>(`${this.url}api/terms/other/addLikes/${id}`, credentials)
     }
 
     /*========= Language Code Method ======== */

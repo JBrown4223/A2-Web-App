@@ -21,5 +21,6 @@ export class NonEnglishTerms {
     fieldOfStudy: String;   
     helpYes: Number;
     helpNo: Number;
-    definitions: [Definitions];
+    defString: String;
+    definitions: Array<Definitions>;
 }
