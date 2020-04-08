@@ -8,9 +8,9 @@ import{ContactComponent} from './contact/contact.component';
 import{EnglishTermsComponent} from './english-terms/english-terms.component';
 import{ViewEnglishTermComponent} from './viewEnglishTermDetail/viewEnglishTerm.component';
 import {AddTermComponent } from './add-term/add-term.component';
-import { AddDefinitionComponent} from './add-definition/add-definition.component';
-import { NonEnglishTermsComponent} from './non-english-terms/non-english-terms.component';
-
+import {AddDefinitionComponent} from './add-definition/add-definition.component';
+import {NonEnglishTermsComponent} from './non-english-terms/non-english-terms.component';
+import {NonEnglishTermDetailsComponent} from './non-english-term-details/non-english-term-details.component';
 
 
 const routes: Routes = [
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path:'addDefinition/:id', component: AddDefinitionComponent},
   //Non-English Routes
   { path:'nonEnglishTerms', component: NonEnglishTermsComponent},
+  { path:'viewNonEnglish/:id', component: NonEnglishTermDetailsComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
  
 ];

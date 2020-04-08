@@ -17,6 +17,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AddTermComponent } from './add-term/add-term.component';
 import { AddDefinitionComponent } from './add-definition/add-definition.component';
 import { NonEnglishTermsComponent } from './non-english-terms/non-english-terms.component';
+import { NonEnglishTermDetailsComponent } from './non-english-term-details/non-english-term-details.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NonEnglishTermsComponent } from './non-english-terms/non-english-terms.
     ContactComponent,
     AddTermComponent,
     AddDefinitionComponent,
-    NonEnglishTermsComponent
+    NonEnglishTermsComponent,
+    NonEnglishTermDetailsComponent
   ],
   imports: [
     BrowserModule,

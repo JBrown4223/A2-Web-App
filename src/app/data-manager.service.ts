@@ -80,8 +80,8 @@ export class DataManagerService {
     }
 
     //Get One
-    getTermByIdNonEnglish(id: String): Observable<any>{
-        return this.http.get<any>(`${this.url}api/terms/other/${id}`)
+    getTermByIdNonEnglish(id: String): Observable<NonEnglishTerms>{
+        return this.http.get<NonEnglishTerms>(`${this.url}api/terms/other/${id}`)
     }
 
     //Get Some, All
@@ -96,7 +96,7 @@ export class DataManagerService {
 
     //Add New Definition
     addNonEnglishDefinition(credentials: Definitions, id: String) : Observable<any> {
-     return this.http.put<any>(`${this.url}api/terms/other/addDefinition/:${id}`,credentials)
+     return this.http.put<any>(`${this.url}api/terms/other/${id}/addDefinition`,credentials)
     }
 
     //Increase the Is Helpful of a term
