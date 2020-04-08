@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "a2-app"
+    }
+  },
+  "defaultProject": "a2-app",
+  "cli": {
+    "analytics": false
+  }
 }
