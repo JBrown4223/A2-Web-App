@@ -14,15 +14,25 @@ export class ViewEnglishTermComponent implements OnInit {
   constructor(private d: DataManagerService, private route: ActivatedRoute) {
   }
   term: EnglishTerms;
-  
+  id = this.route.snapshot.params['id'];
 
   ngOnInit() {
-    let id = this.route.snapshot.params['id'];
-    this.d.getTermByIdEnglish(id).subscribe(u =>{ 
+   
+    this.d.getTermByIdEnglish(this.id).subscribe(u =>{ 
       this.term = u; })
   }
   
+  like(){
 
+  }
+  helpYes(){
+    this.d.isHelpful(this.term, this.id).subscribe(u =>{ 
+      this.term.helpYes = u; })
+  }
 
+  helpNo(){
+    this.d.isNotHelpful(this.term, this.id).subscribe(u =>{ 
+      this.term.helpNo = u; })
+  }
 
 }

@@ -58,16 +58,16 @@ export class DataManagerService {
 
    //Increase the Is Helpful of a term
    isHelpful(creditials: EnglishTerms, id: String): Observable<any>{
-       return this.http.put<any>(`${this.url}api/terms/english/addYes/:${id}`, creditials)
+       return this.http.put<any>(`${this.url}api/terms/english/addYes/${id}`, creditials)
    }
    //Increase the not Helpful of a term
    isNotHelpful(creditials: EnglishTerms, id: String): Observable<any>{
-       return this.http.put<any>(`${this.url}api/terms/english/addNo/:${id}`, creditials)
+       return this.http.put<any>(`${this.url}api/terms/english/addNo/${id}`, creditials)
    }
 
    //Increase Definition Likes
-   defLikes(credentials: Definitions, id: String): Observable<any>{
-       return this.http.put<any>(`${this.url}api/terms/english/addLikes/:id:${id}`, credentials)
+   defLikes(term_id: String, def_id: String): Observable<any>{
+       return this.http.put<any>(`${this.url}api/terms/english/addLikes/${term_id}`,def_id);
    }
 
 
